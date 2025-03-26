@@ -1,0 +1,6 @@
+__pycache__
+dataset
+plant_disease_model.pt
+best_plant_disease_model.pt
+venv
+static

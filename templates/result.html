@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        img { width: 300px; margin: 20px; border-radius: 10px; }
+        .container { max-width: 500px; margin: auto; padding: 20px; background-color: #f4f4f4; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Plant Name: {{ plant }}</h2>
+    <h2>Predicted Disease: {{ title }}</h2>
+    <div class="container">
+        <img src="{{ image_url }}" alt="Uploaded Image">
+        <h3>Description</h3>
+        <p>{{ desc }}</p>
+        <h3>Precautions</h3>
+        <p>{{ prevent }}</p>
+    </div>
+    <br>
+    <a href="/">Upload Another Image</a>
+</body>
+</html>
