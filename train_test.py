@@ -3,7 +3,7 @@ import shutil
 import random
 
 # Define dataset path
-dataset_folder = "/home/mhdyahiya/Medicinal_Plant_Disease/Dataset"
+dataset_folder = "SET"
 train_folder = os.path.join(dataset_folder, "train")
 test_folder = os.path.join(dataset_folder, "test")
 
