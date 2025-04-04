@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicinal Plant Disease Detector</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+     
+    <style>
+           :root {
+            --primary: #113b10;
+            --primary-light: #57CC99;
+            --primary-dark: #0e0000;
+            --secondary: #FF9F1C;
+            --accent: #FF6392;
+            --light: #bcefc5;
+            --light-bg: #3fb966;
+            --light-gray: #6170ab;
+            --medium-gray: #0a521c;
+            --dark-gray: #6C757D;
+            --dark: #212529;
+            --success: #80ED99;
+            --warning: #FFD166;
+            --danger: #EF476F;
+            --info: #118AB2;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            line-height: 1.6;
+            background-image: linear-gradient(135deg, var(--light-bg) 0%, var(--primary) 100%);
+        }
+        input { margin: 20px; } 
+        button {  width: 100%;
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(17, 59, 16, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);}
+            .button:hover {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(17, 59, 16, 0.4);
+        }
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .app-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .app-header h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+        .tagline {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+        .logo {
+            height: 60px;
+            width: 60px;
+            filter: drop-shadow(0 2px 4px rgba(17, 59, 16, 0.4));
+        }
+        .upload-card {
+            background: rgba(255,255,255,0.93);
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(17, 59, 16, 0.3);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .upload-card:hover {
+            box-shadow: 0 12px 35px rgba(17, 59, 16, 0.4);
+            transform: translateY(-3px);
+        }
+        .upload-area {
+            border: 2px dashed var(--medium-gray);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+            position: relative;
+            background-color: rgba(188, 239, 197, 0.3);
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background-color: rgba(17, 59, 16, 0.1);
+        }
+
+        .upload-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary);
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .upload-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Leaf Icon" class="logo">
+                <h1>Medicinal Plant Health Scanner</h1>
+            </div>
+            <p class="tagline">AI-powered disease detection for your medicinal plants</p>
+        </header>
+        <div class="upload-card">
+            <div class="upload-area" id="dropZone">
+                <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                </svg>
+                <p class="upload-text">Upload a Medicinal Plant Leaf Image</p>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit" id="analyzeBtn">Predict Disease</button>
+    </form>
+    </div>
+    </div>
+</body>
+</html>
