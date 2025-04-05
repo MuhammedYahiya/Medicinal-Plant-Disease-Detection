@@ -1,26 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disease Prediction Result</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        img { width: 300px; margin: 20px; border-radius: 10px; }
-        .container { max-width: 500px; margin: auto; padding: 20px; background-color: #f4f4f4; border-radius: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disease Prediction Result</title>
+  <style>
+    :root {
+      --primary: #1b4332;
+      --secondary: #d8f3dc;
+      --bg: #f0fdf4;
+      --text: #081c15;
+      --card-bg: #ffffff;
+      --accent: #40916c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #c1f0c1, #6cc38a);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      max-width: 800px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .plant-image {
+      width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 16px;
+    }
+
+    th, td {
+      padding: 16px 20px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--accent);
+      color: white;
+      font-weight: 600;
+      width: 180px;
+      border-radius: 6px 0 0 6px;
+    }
+
+    td {
+      background-color: var(--secondary);
+      color: var(--text);
+      border-radius: 0 6px 6px 0;
+    }
+
+    tr + tr td, tr + tr th {
+      border-top: 2px solid #ffffff;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0f2e22;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+      }
+
+      tr {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h2>Plant Name: {{ plant }}</h2>
-    <h2>Predicted Disease: {{ title }}</h2>
-    <div class="container">
-        <img src="{{ image_url }}" alt="Uploaded Image">
-        <h3>Description</h3>
-        <p>{{ desc }}</p>
-        <h3>Precautions</h3>
-        <p>{{ prevent }}</p>
-    </div>
-    <br>
-    <a href="/">Upload Another Image</a>
+  <h2>Prediction Result</h2>
+
+  <div class="container">
+    <img src="{{ image_url }}" alt="Uploaded Image" class="plant-image" />
+
+    <table>
+      <tr>
+        <th>Plant Name</th>
+        <td>{{ plant }}</td>
+      </tr>
+      <tr>
+        <th>Predicted Disease</th>
+        <td>{{ title }}</td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td>{{ desc }}</td>
+      </tr>
+      <tr>
+        <th>Precautions</th>
+        <td>{{ prevent }}</td>
+      </tr>
+    </table>
+
+    <div style="text-align: center;">
+        <a href="/" class="btn">Upload Another Image</a>
+      </div>
+  </div>
 </body>
 </html>
